@@ -1,10 +1,15 @@
+import Dashboard from "./components/Dashboard";
+import './App.css';
+import Header from "./components/layout/Header";
+import "bootstrap/dist/css/bootstrap.min.css"
 
 
 
 function App() {
   return (
-   <div>
-    <h1>this is me</h1>
+   <div className="App">
+   <Header/>
+    <Dashboard/>
    </div>
   );
 }

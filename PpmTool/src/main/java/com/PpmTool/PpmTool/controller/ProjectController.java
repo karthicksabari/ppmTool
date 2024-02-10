@@ -45,31 +45,29 @@ public class ProjectController {
 		return new ResponseEntity<Project>(project, HttpStatus.CREATED);
 	}
 
-
 	@GetMapping("/{id}")
-	public ResponseEntity<?> readProjectByIdent(@PathVariable String id){
+	public ResponseEntity<?> readProjectByIdent(@PathVariable String id) {
 		Project project = projectService.readProjectByIdent(id);
-		if(project == null) {
-			return new ResponseEntity("the projectIdentifier '"+id+"' does not exists. ",HttpStatus.OK);
+		if (project == null) {
+			return new ResponseEntity("the projectIdentifier '" + id + "' does not exists. ", HttpStatus.OK);
 		}
-		return new ResponseEntity(project,HttpStatus.OK);
+		return new ResponseEntity(project, HttpStatus.OK);
 	}
-	
-	
+
 	@GetMapping("/getAll")
-	public ResponseEntity<?> readAllProject(){
-		return new ResponseEntity(projectService.readAllProject() , HttpStatus.OK);
+	public ResponseEntity<?> readAllProject() {
+		return new ResponseEntity(projectService.readAllProject(), HttpStatus.OK);
 	}
-	
+
 	/**
 	 * @param id
 	 * @return
 	 */
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> deleteById(@PathVariable String id){
+	public ResponseEntity<?> deleteById(@PathVariable String id) {
 		projectService.deleteById(id);
-		
-		return new ResponseEntity("the projectIdentifier '"+id+"' deleted successfully. ",HttpStatus.OK);
+
+		return new ResponseEntity("the projectIdentifier '" + id + "' deleted successfully. ", HttpStatus.OK);
 	}
 
 }
